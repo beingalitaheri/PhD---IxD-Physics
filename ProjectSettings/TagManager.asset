@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FireSource
+  - Ammunition
+  - Right_hand
+  - Left_hand
   layers:
   - Default
   - TransparentFX
@@ -13,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Hologram
+  - HologramInteractor
+  - Pointer Interactable
   - 
   - 
   - 
