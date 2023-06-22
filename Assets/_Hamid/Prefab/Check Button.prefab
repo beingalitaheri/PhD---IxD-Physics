@@ -189,11 +189,13 @@ MonoBehaviour:
   _colorActive: {r: 0, g: 0.779, b: 1, a: 1}
   AudioSource: {fileID: 652276837520969858}
   ButtonClip: {fileID: 8300000, guid: ea8a500fa27da9f4db301383f36b1ba2, type: 3}
-  _hintPrefab: {fileID: 1943868946912752455}
+  _hintPrefab: {fileID: 3565186390028843858, guid: 476802e8133b40042aa4a0d30ab5415a,
+    type: 3}
   _hintText: Check!
   _showHintDelay: 0.1
   _showhint: 1
   _iconCheckMark: {fileID: 6016582316071081578}
+  _LocalScale: {x: 0, y: 0, z: 0}
 --- !u!65 &2504952806452075463
 BoxCollider:
   m_ObjectHideFlags: 0

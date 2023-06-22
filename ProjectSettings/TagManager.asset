@@ -8,6 +8,7 @@ TagManager:
   - Ammunition
   - Right_hand
   - Left_hand
+  - Floor
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ViralSettings
   m_EditorClassIdentifier: 
   TeleporationActive:
-    value: 0
+    value: 1
   MimotionActive:
     value: 0
   MenuFollowPlayer:

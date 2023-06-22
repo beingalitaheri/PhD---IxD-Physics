@@ -25,19 +25,9 @@ public class Teleportation : MonoBehaviour
     private IDisposable _delayAimDisposable;
     private int _layerMask = 1 << 4;
 
-
-
     //tweeners
     private Tween _targetTweener;
     private Sequence _movementSequence;
-
-
-
-    
-
-
-
-
 
     public Subject<Teleportation> OnStartAiming = new Subject<Teleportation>();
     public Subject<Teleportation> OnStopAiming = new Subject<Teleportation>();

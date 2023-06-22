@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deacd50209617c24f91f9c20a7103621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPoint: {fileID: 0}
+  _startPoint: {fileID: 362598110}
   _lineRenderer: {fileID: 39973778}
   _colorValid:
     serializedVersion: 2

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Laser_Pointer : MonoBehaviour
 {
-
     [SerializeField] private Transform _startPoint;
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private Gradient _colorValid;
@@ -52,8 +51,7 @@ public class Laser_Pointer : MonoBehaviour
 
     public void DrawCurve(Vector3 start, Vector3 end, Gradient color)
     {
-        ClearCurve();
-
+        _pointList.Clear();
         for (float i = 0; i <= 1; i += 1.0f / _resolution)
         {
             Vector3 _middlePoint = new Vector3((start.x + end.x) / 2, start.y, (start.z + end.z) / 2);

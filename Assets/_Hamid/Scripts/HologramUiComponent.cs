@@ -77,19 +77,20 @@ namespace _VIRAL._03_Scripts
 
         private void InitializeHint()
         {
-            /*if (_hintPrefab != null)
+            if (_hintPrefab != null)
             {
-                if(_hintPrefab !=null){
-                GameObject hint = Instantiate(_hintPrefab, transform.position, transform.rotation);
+                if (_hintPrefab != null)
+                {
+                    GameObject hint = Instantiate(_hintPrefab, transform.position, transform.rotation);
 
-                _hologramHint = hint.GetComponent<HologramHint>();
+                    _hologramHint = hint.GetComponent<HologramHint>();
 
-                _hologramHint.SetUiComponent(this);
-                _hologramHint.SetText(_hintText.Length > 0 ? _hintText : _text.text);
-            }*/
+                    _hologramHint.SetUiComponent(this);
+                    _hologramHint.SetText(_hintText.Length > 0 ? _hintText : _text.text);
+                }
 
+            }
         }
-
         public void DeactivateFor(float seconds = 0.4f)
         {
             Enable(false);
