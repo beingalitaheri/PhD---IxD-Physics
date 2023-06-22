@@ -26,8 +26,8 @@ public class HeightAdjuster : MonoBehaviour
 
         if (distance > _thershold)
         {
-            Vector3 newHeight = new Vector3(transform.position.x, height, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, newHeight, Time.fixedDeltaTime * _lerpvalue);
+            //Vector3 newHeight = new Vector3(transform.position.x, height, transform.position.z);
+            //transform.position = Vector3.Lerp(transform.position, newHeight, Time.fixedDeltaTime * _lerpvalue);
         }
     }
 }

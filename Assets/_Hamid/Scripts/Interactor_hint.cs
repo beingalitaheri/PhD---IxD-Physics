@@ -2,32 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactor_hint : MonoBehaviour
+namespace _VIRAL._03_Scripts
 {
-    private HologramUiComponent _hintedComponent;
-    public HologramUiComponent HintedComponenet => _hintedComponent;
-
-    public void SetComponenet(HologramUiComponent _componenet)
+    public class Interactor_hint : MonoBehaviour
     {
-        bool notNullAndDifferent = false;
+        private HologramUiComponent _hintedComponent;
+        public HologramUiComponent HintedComponenet => _hintedComponent;
 
-        if (_hintedComponent && _componenet)
+        public void SetComponenet(HologramUiComponent _componenet)
         {
-            notNullAndDifferent = _hintedComponent.GetInstanceID() != _componenet.GetInstanceID();
-        }
+            bool notNullAndDifferent = false;
 
-        if (!_hintedComponent || !_componenet || notNullAndDifferent)
-        {
-            if (_hintedComponent)
+            if (_hintedComponent && _componenet)
             {
-                _hintedComponent.Focus(false);
+                notNullAndDifferent = _hintedComponent.GetInstanceID() != _componenet.GetInstanceID();
             }
 
-            if (_componenet)
+            if (!_hintedComponent || !_componenet || notNullAndDifferent)
             {
-                _componenet.Focus(true);
+                if (_hintedComponent)
+                {
+                    _hintedComponent.Focus(false);
+                }
+
+                if (_componenet)
+                {
+                    _componenet.Focus(true);
+                }
+                _hintedComponent = _componenet;
             }
-            _hintedComponent = _componenet;
         }
     }
 }

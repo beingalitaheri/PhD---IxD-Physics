@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330339716412629516}
   - component: {fileID: 6016582316071081578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,11 +92,10 @@ GameObject:
   - component: {fileID: 5647549834906183046}
   - component: {fileID: 7656925352866243726}
   - component: {fileID: 2228176916139466583}
-  - component: {fileID: 8350211604706591184}
   - component: {fileID: 8028576930571197427}
   - component: {fileID: 2504952806452075463}
   - component: {fileID: 652276837520969858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Check Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +109,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943868946912752455}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2039316, y: 2.01, z: -6.7213416}
   m_LocalScale: {x: 0.5, y: 0.2, z: 0.04}
   m_Children:
@@ -167,33 +166,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8350211604706591184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943868946912752455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55865b7308067b24d841e249bb64e95a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enableOnStart: 1
-  _text: {fileID: 6347430827486953423}
-  _icon: {fileID: 4454566833399261033}
-  _actiondelay: 0
-  _deactivateAfterActionTime: 0
-  _colorDisabled: {r: 1, g: 1, b: 1, a: 0.3}
-  _colorEnabled: {r: 1, g: 1, b: 1, a: 0.7}
-  _colorFocus: {r: 1, g: 1, b: 1, a: 1}
-  _colorActive: {r: 0, g: 0.779, b: 1, a: 1}
-  AudioSource: {fileID: 652276837520969858}
-  ButtonClip: {fileID: 8300000, guid: ea8a500fa27da9f4db301383f36b1ba2, type: 3}
-  _hintPrefab: {fileID: 1943868946912752455}
-  _hintText: Clicked
-  _showHintDelay: 0.1
-  _showhint: 1
 --- !u!114 &8028576930571197427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +316,7 @@ GameObject:
   - component: {fileID: 2611585139314441645}
   - component: {fileID: 7606269487390389538}
   - component: {fileID: 6347430827486953423}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 195645068890546675}
   - component: {fileID: 4454566833399261033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: piano_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}

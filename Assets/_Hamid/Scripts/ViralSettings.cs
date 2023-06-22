@@ -10,9 +10,9 @@ using System;
     [CreateAssetMenu(fileName = "ViralSettings", menuName = "Viral/Settings", order = 1)]
     public class ViralSettings : ScriptableObject
      {
-        public BoolReactiveProperty TeleporationActive = new BoolReactiveProperty(true);
-        public BoolReactiveProperty MimotionActive = new BoolReactiveProperty(true);
-        public BoolReactiveProperty MenuFollowPlayer = new BoolReactiveProperty(true);
+        public BoolReactiveProperty TeleporationActive = new BoolReactiveProperty(false);
+        public BoolReactiveProperty MimotionActive = new BoolReactiveProperty(false);
+        public BoolReactiveProperty MenuFollowPlayer = new BoolReactiveProperty(false);
 
         public BoolReactiveProperty EngineerModeActive = new BoolReactiveProperty(false);
 

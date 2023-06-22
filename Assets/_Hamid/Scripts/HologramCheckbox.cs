@@ -7,11 +7,11 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 
-
+namespace _VIRAL._03_Scripts { 
 public class HologramCheckbox : HologramUiComponent
 {
     [SerializeField] public SpriteRenderer _iconCheckMark;
-
+        public Vector3 _LocalScale;
     private bool _isChecked = false;
     private Tweener _checkMarkTweener;
     private Vector3 _iconCheckmarkInitialScale;
@@ -31,7 +31,7 @@ public class HologramCheckbox : HologramUiComponent
     {
         base.ExitAction(point);
 
-        _icon.transform.DOScale(_initialScale, 0.1f);
+        _icon.transform.DOScale(_LocalScale, 0.1f);
     }
     public override void EnterAction(Vector3 point)
     {
@@ -87,4 +87,5 @@ public class HologramCheckbox : HologramUiComponent
         }
     
     }
+}
 }

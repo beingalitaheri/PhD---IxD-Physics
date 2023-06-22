@@ -7,46 +7,48 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 
-
-public class HologramButton:HologramUiComponent 
+namespace _VIRAL._03_Scripts
 {
-    private Subject<HologramButton> _onButtonPress = new Subject<HologramButton>();
-
-    public  IObservable<HologramButton> OnPress()
+    public class HologramButton : HologramUiComponent
     {
-        return _onButtonPress ?? (_onButtonPress = new Subject<HologramButton>()); 
-    
-    }
-    public override void EnterAction(Vector3 point)
-    {
-        base.EnterAction(point);
+        private Subject<HologramButton> _onButtonPress = new Subject<HologramButton>();
 
-        transform.DOScale(_initialScale * 1.1f, 0.1f);
-
-       
-    
-    }
-
-    public override void ExitAction(Vector3 point)
-    {
-        base.ExitAction(point);
-        PressButton();
-    }
-
-    private void PressButton()
-    {
-        _onButtonPress.OnNext(this);
-
-        PlaySound();
-
-        if (_deactivateAfterActionTime >0)
+        public IObservable<HologramButton> OnPress()
         {
-            DeactivateFor(_deactivateAfterActionTime); 
-        }
-    }
+            return _onButtonPress ?? (_onButtonPress = new Subject<HologramButton>());
 
-    public void SetText(string v)
-    {
-        throw new NotImplementedException();
+        }
+        public override void EnterAction(Vector3 point)
+        {
+            base.EnterAction(point);
+
+            transform.DOScale(_initialScale * 1.1f, 0.1f);
+
+
+
+        }
+
+        public override void ExitAction(Vector3 point)
+        {
+            base.ExitAction(point);
+            PressButton();
+        }
+
+        private void PressButton()
+        {
+            _onButtonPress.OnNext(this);
+
+            PlaySound();
+
+            if (_deactivateAfterActionTime > 0)
+            {
+                DeactivateFor(_deactivateAfterActionTime);
+            }
+        }
+
+        public void SetText(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
