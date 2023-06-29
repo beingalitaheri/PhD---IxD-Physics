@@ -27,10 +27,8 @@ namespace _VIRAL._03_Scripts
         [SerializeField] public AudioSource AudioSource;
         [SerializeField] public AudioClip ButtonClip;
 
-
         public bool Enabled => _enabled;
         public bool Focused => _focus;
-
         public bool Active => _active;
 
 
@@ -58,8 +56,6 @@ namespace _VIRAL._03_Scripts
 
         [SerializeField] private bool _showhint = true;
 
-
-
         public Subject<HologramHint> hintDisposable = new Subject<HologramHint>();
 
         private IDisposable _hintDisposable => hintDisposable;
@@ -68,41 +64,19 @@ namespace _VIRAL._03_Scripts
         {
             _initialScale = transform.localScale;
             _iconInitialScale = _icon.transform.localScale;
-
             Enable(_enableOnStart);
-
             //****** i add this 
             InitializeHint();
         }
 
-        private void InitializeHint()
-        {
-            if (_hintPrefab != null)
-            {
-                if (_hintPrefab != null)
-                {
-                    GameObject hint = Instantiate(_hintPrefab, transform.position, transform.rotation);
-
-                    _hologramHint = hint.GetComponent<HologramHint>();
-
-                    _hologramHint.SetUiComponent(this);
-                    _hologramHint.SetText(_hintText.Length > 0 ? _hintText : _text.text);
-                }
-
-            }
-        }
         public void DeactivateFor(float seconds = 0.4f)
         {
             Enable(false);
-
             Observable.Timer(TimeSpan.FromSeconds(seconds)).Subscribe(t =>
-
-           {
-               Enable(true);
-
-           }
+            {
+                Enable(true);
+            }
         );
-
         }
 
         private void OnTriggerEnter(Collider other)
@@ -124,9 +98,24 @@ namespace _VIRAL._03_Scripts
                 my_intereactior_hint.SetComponenet(this);
                 Focus(true);
             }
-
             //_enabled = true;
+        }
 
+        private void InitializeHint()
+        {
+            if (_hintPrefab != null)
+            {
+                if (_hintPrefab != null)
+                {
+                    GameObject hint = Instantiate(_hintPrefab, transform.position, transform.rotation);
+
+                    _hologramHint = hint.GetComponent<HologramHint>();
+
+                    _hologramHint.SetUiComponent(this);
+                    _hologramHint.SetText(_hintText.Length > 0 ? _hintText : _text.text);
+                }
+
+            }
         }
 
         private void OnTriggerExit(Collider other)
@@ -147,7 +136,6 @@ namespace _VIRAL._03_Scripts
         public void SetInteractor(Interactor interactor)
         {
             _interactor = interactor;
-
         }
 
         public void Enable(bool enable)
@@ -169,7 +157,6 @@ namespace _VIRAL._03_Scripts
         private void UpdateColor()
         {
             SetColor(_active ? _colorActive : _focus ? _colorFocus : _enabled ? _colorEnabled : _colorDisabled);
-
         }
 
         private void SetColor(Color my_color)

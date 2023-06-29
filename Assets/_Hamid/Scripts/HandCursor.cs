@@ -11,8 +11,6 @@ public class HandCursor : MonoBehaviour
 
     [SerializeField]private Interactor _interactor;
 
-
-
     [SerializeField] private Transform _startpoint;
     [SerializeField] private Laser_Pointer _laserPointer;
     [SerializeField] private Transform _ring;
@@ -55,20 +53,14 @@ public class HandCursor : MonoBehaviour
         {
             HandlePinch();
             _isPinching = true;
-
-        }
-
-        );
+        });
 
         _hand.OnPinchStopped(_fingerPinch).Subscribe(_ =>
 
         {
             HandleUnpinch();
             _isPinching = false;
-
-        }
-
-        );
+        } );
     }
     private void Update()
     {
@@ -93,7 +85,6 @@ public class HandCursor : MonoBehaviour
         }
 
         RaycastHit hit;
-
         if (Physics.Raycast(_startpoint.position, _direction, out hit, _maxDistance, _layerMask))
         {
             _hitPoint = hit.point;

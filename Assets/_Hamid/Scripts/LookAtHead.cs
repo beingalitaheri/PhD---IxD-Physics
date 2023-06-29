@@ -25,12 +25,12 @@ public class LookAtHead : MonoBehaviour
 
     public void SetDistance(float distance)
     {
-        _distance = distance ;
+        _distance = distance * 0.1f ;
     
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 currentPos = transform.position;
 
@@ -42,8 +42,6 @@ public class LookAtHead : MonoBehaviour
         newRot = Quaternion.Lerp(transform.rotation, newRot, _lerpSpeedRotation);
 
         transform.SetPositionAndRotation(newPos, newRot);
-
-
 
         Vector3 pos = _translocator.localPosition;
         _translocator.localPosition = Vector3.Lerp(pos, new Vector3(0, 0, _distance), _lerpSpeedDistance);

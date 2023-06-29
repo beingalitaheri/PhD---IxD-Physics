@@ -9,12 +9,9 @@ namespace _VIRAL._03_Scripts
     {
         [SerializeField] private ViralSettings _viralSettings;
 
-
         [Space]
         [SerializeField] private LookAtHead _lookAtHead;
         [SerializeField] private HeightAdjuster _heightAdjuster;
-
-
 
         [Space]
         [SerializeField] private HologramButton _hologramButtonSelect;
@@ -43,8 +40,6 @@ namespace _VIRAL._03_Scripts
 
         private void Awake()
         {
-
-
             _lookAtHead.SetDistance(_sliderScale.Value);
             AdjustScale(_sliderScale.Value);
         }
@@ -52,17 +47,10 @@ namespace _VIRAL._03_Scripts
         private void Start()
         {
             _viralSettings.Load(_savepath);
-
             Initilaize();
-
             _lookAtHead.enabled = _viralSettings.MenuFollowPlayer.Value;
             _heightAdjuster.enabled = _viralSettings.MenuFollowPlayer.Value;
-
-
-
         }
-
-
 
         private void Update()
         {
@@ -73,12 +61,9 @@ namespace _VIRAL._03_Scripts
         {
             _hologramButtonSelect.OnPress().Subscribe(_ =>
             {
-
                 hologramcheckboxTeleporation.PhysicalCheck(true);
                 hologramcheckboxMimotion.PhysicalCheck(true);
-
             }
-
 
             );
 
@@ -86,39 +71,26 @@ namespace _VIRAL._03_Scripts
             {
                 hologramcheckboxTeleporation.PhysicalCheck(false);
                 hologramcheckboxMimotion.PhysicalCheck(false);
-
             }
-
             );
-
             _viralSettings.MenuFollowPlayer.Subscribe(follow =>
             {
                 hologramcheckboxFollowPlayer.SetValue(follow);
-
                 _lookAtHead.enabled = follow;
-
-            }
-
-            );
+            });
 
             hologramcheckboxFollowPlayer.onSwitch.Subscribe(value =>
             {
                 _viralSettings.MenuFollowPlayer.Value = value;
-
-            }
-
-            );
-
+            });
 
             //Teleporatation 
             _viralSettings.TeleporationActive.Subscribe(hologramcheckboxTeleporation.SetValue);
 
             hologramcheckboxTeleporation.onSwitch.Subscribe(active =>
             {
-
                 _viralSettings.TeleporationActive.Value = active;
-            }
-            );
+            });
 
             //Mimotion 
             hologramcheckboxMimotion.SetValue(_viralSettings.MimotionActive.Value);

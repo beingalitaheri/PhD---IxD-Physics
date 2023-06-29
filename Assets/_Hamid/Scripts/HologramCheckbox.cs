@@ -11,12 +11,11 @@ namespace _VIRAL._03_Scripts {
 public class HologramCheckbox : HologramUiComponent
 {
     [SerializeField] public SpriteRenderer _iconCheckMark;
-        public Vector3 _LocalScale;
+    public Vector3 _LocalScale;
     private bool _isChecked = false;
     private Tweener _checkMarkTweener;
     private Vector3 _iconCheckmarkInitialScale;
     public Subject<bool> onSwitch = new Subject<bool>();
-
 
     protected override void Awake()
     {
@@ -30,13 +29,11 @@ public class HologramCheckbox : HologramUiComponent
     public override void ExitAction(Vector3 point)
     {
         base.ExitAction(point);
-
         _icon.transform.DOScale(_LocalScale, 0.1f);
     }
     public override void EnterAction(Vector3 point)
     {
         base.EnterAction(point);
-
         _icon.transform.DOScale(_iconInitialScale * 1.2f, 0.1f);
 
         PlaySound();
