@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UniRx;
+using TMPro;
 using DG.Tweening;
 using System;
 namespace _VIRAL._03_Scripts
@@ -17,7 +18,6 @@ namespace _VIRAL._03_Scripts
         [SerializeField] private Transform _Pivot;
         [SerializeField] private Transform _Panel;
         [SerializeField] private Window _window;
-
         [Space]
         [SerializeField] private HologramButton _buttonOpen;
         [SerializeField] private HologramButton _buttonClose;
@@ -58,7 +58,6 @@ namespace _VIRAL._03_Scripts
         private void Update()
         {
             CheckFacing();
-
             if (_isFacing && !_panelOpened && _panelMoving)
             {
                 OpenPanel();
@@ -68,7 +67,7 @@ namespace _VIRAL._03_Scripts
                 ClosePanel();
             }
         }
-
+        
         private void Initialize()
         {
             InitializePanel();
