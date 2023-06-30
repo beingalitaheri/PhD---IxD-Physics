@@ -37,20 +37,15 @@ namespace _VIRAL._03_Scripts
 
         private void Awake()
         {
-
-
-
             _rb = GetComponent<Rigidbody>();
-
             _ring = Instantiate(_ringPrefab, transform.position, transform.rotation).GetComponent<SwellingRing>();
             _ring.transform.localScale = Vector3.one * _ringScale;
             _centerEye = FindObjectOfType<CenterEyeAnchor>();
 
-
             _holdable = GetComponent<Holdable>();
             _scalable = GetComponent<Scalable>();
-
         }
+
         private void Start()
         {
             Focus(false);
