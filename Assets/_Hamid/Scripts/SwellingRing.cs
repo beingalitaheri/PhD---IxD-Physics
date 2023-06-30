@@ -51,7 +51,6 @@ public class SwellingRing : MonoBehaviour
     }
     public void Activate(bool activate)
     {
-
         _spriteRenderer.material  = activate? _materialDefault : _materialActive;
     }
 

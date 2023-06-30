@@ -48,17 +48,21 @@ namespace _VIRAL._03_Scripts
 
         private void Awake()
         {
-
+            Initialize();
         }
         private void Start()
         {
-
+            Initialize();
         }
-
+        private void Initialize()
+        {
+            InitializePanel();
+            InitializeButtons();
+        }
         private void Update()
         {
             CheckFacing();
-            if (_isFacing && !_panelOpened && _panelMoving)
+            if (_isFacing && !_panelOpened && !_panelMoving)
             {
                 OpenPanel();
             }
@@ -67,13 +71,24 @@ namespace _VIRAL._03_Scripts
                 ClosePanel();
             }
         }
-        
-        private void Initialize()
+        private void CheckFacing()
         {
-            InitializePanel();
-            InitializeButtons();
+            Vector3 forward = transform.TransformDirection(Vector3.forward);
+            Vector3 toOther = _centorEyeAnchor.position - transform.position;
+
+            _isFacing = Vector3.Dot(forward, toOther) > 0.1f;
+        }
+        private void InitializePanel()
+        {
+            _Panel.gameObject.SetActive(false);
+            _Pivot.localRotation = Quaternion.Euler(0, 0, 0);
+            _panelInitialScale = _Panel.localScale;
+            _Panel.localScale = _panelInitialScale * 0.01f;
+            _buttonOpenInitialScale = _buttonOpen.transform.localScale;
+            _window.Close();
 
         }
+
         private void OpenPanel()
         {
             _panelMoving = true;
@@ -99,11 +114,7 @@ namespace _VIRAL._03_Scripts
             _buttonOpenTweener = _buttonOpen.transform.DOScale(_buttonOpenInitialScale, 0.1f).OnComplete(() =>
             {
                 _buttonOpen.gameObject.SetActive(true);
-
-            }
-
-            );
-
+            });
             _panelMoving = true;
             _panelSequence?.Kill();
             _panelSequence = DOTween.Sequence(); ;
@@ -113,6 +124,7 @@ namespace _VIRAL._03_Scripts
                 SetEase(Ease.InOutQuad).OnComplete(
                 () =>
                 {
+                    _buttonOpen.gameObject.SetActive(true);
                     _Panel.gameObject.SetActive(false);
                     _panelMoving = false;
                     _panelOpened = false;
@@ -132,19 +144,13 @@ namespace _VIRAL._03_Scripts
                                                                 .OnComplete(() =>
                                                                 {
                                                                     _buttonOpen.gameObject.SetActive(false);
-
-
-
+                                                                    _Panel.gameObject.SetActive(true);
                                                                 }
 
                                                                 );
                 _buttonOpen.DeactivateFor(1);
                 Debug.Log("Open Menu");
             });
-
-
-
-
             _buttonClose.OnPress().Subscribe(b =>
             {
                 _window.Close();
@@ -157,17 +163,13 @@ namespace _VIRAL._03_Scripts
                     _buttonOpenTweener = _buttonOpen.transform.DOScale(_buttonOpenInitialScale, 0.1f).OnComplete(()
                          =>
                     {
-
                         _buttonOpen.gameObject.SetActive(true);
-
                     });
-
                 });
             });
 
             _buttonMenu.OnPress().Subscribe(b => { _controlPanel.Activated(true); });
-
-
+            
             //Teleporation
             _checkboxTeleportation.SetValue(_viralSetting.TeleporationActive.Value);
             _viralSetting.TeleporationActive.Subscribe(_checkboxTeleportation.SetValue);
@@ -176,49 +178,25 @@ namespace _VIRAL._03_Scripts
             //Mimotion
             _checkboxMimotion.SetValue(_viralSetting.MimotionActive.Value);
             _viralSetting.MimotionActive.Subscribe(_checkboxMimotion.SetValue);
-            _checkboxMimotion.onSwitch.Subscribe(active => { _viralSetting.MimotionActive.Value = active; });
+            _checkboxMimotion.onSwitch.Subscribe(value => { _viralSetting.MimotionActive.Value = value; });
 
             //Mode Switch
             _buttonMode.SetText(_viralSetting.EngineerModeActive.Value ? _operatorModeText : _engineerModeText);
-
-
             _viralSetting.EngineerModeActive.Subscribe((b =>
             {
                 _buttonMode.SetText(b ? _operatorModeText : _engineerModeText);
             }
             ));
 
-
             _buttonMode.OnPress().Subscribe(_ =>
             {
                 _viralSetting.EngineerModeActive.Value = !_viralSetting.EngineerModeActive.Value;
 
-                Debug.Log("Switch Mode: " + (_viralSetting.EngineerModeActive.Value ? "Engineer" : "Operator"));
+                Debug.Log("Switch Mode: " + (_viralSetting.EngineerModeActive.Value ? "ENGINEER" : "OPERATOR"));
 
             });
 
         }
-
-        private void InitializePanel()
-        {
-            _Panel.gameObject.SetActive(false);
-            _Pivot.localRotation = Quaternion.Euler(0, 0, 0);
-            _panelInitialScale = _Panel.localScale;
-            _Panel.localScale = _panelInitialScale * 0.01f;
-            _buttonOpenInitialScale = _buttonOpen.transform.localScale;
-            _window.Close();
-
-        }
-
-        private void CheckFacing()
-        {
-            Vector3 forward = transform.TransformDirection(Vector3.forward);
-            Vector3 toOther = _centorEyeAnchor.position - transform.position;
-
-            _isFacing = Vector3.Dot(forward, toOther) > 0.1f;
-
-        }
-
 
     }
 }

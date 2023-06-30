@@ -7,7 +7,6 @@ public class FaceTowardPlayer : MonoBehaviour
     private Transform _centerEye;
     private Quaternion _rotation;
 
-
     // Start is called before the first frame update
     void Start()
     {

@@ -27,33 +27,14 @@ namespace _VIRAL._03_Scripts
             _leftHand = GameObject.FindGameObjectWithTag("Left_hand").GetComponent<Hand>();
             _rightHand = GameObject.FindGameObjectWithTag("Right_hand").GetComponent<Hand>();
         }
-
-        public IObservable<float> TwoHandedPinchDistance
-        {
-            get
-            {
-                var leftHandPinch = _leftHand.OnPinch(_pinchFinger);
-                var rightHandPinch = _rightHand.OnPinch(_pinchFinger);
-
-                return OnTwoHandedPinchStart
-                    .SelectMany(p =>
-                    Observable.EveryUpdate().Select(x => PinchDistance())
-                    .TakeUntil(leftHandPinch.Merge(rightHandPinch)));
-
-            }
-        }
-
         private IObservable<bool> CreateOnTwoHandedPinch()
         {
             var leftHandPinch = _leftHand.OnPinch(_pinchFinger);
             var rightHandPinch = _rightHand.OnPinch(_pinchFinger);
             var combinePinch = Observable.CombineLatest(leftHandPinch, rightHandPinch);
 
-
-
             return combinePinch.Select(p => p[0] && p[1]);
         }
-
         public IObservable<float> OnTwoHandedPinchStart
         {
             get
@@ -68,34 +49,39 @@ namespace _VIRAL._03_Scripts
             }
         }
 
-        //public IObservable<float> OnTwoHandedPinchStart
-        //{ 
-
-        //}
-
         public IObservable<float> OnTwoHandedPinchEnd
         {
             get
-
             {
-
-                var LeftHandPinch = _leftHand.OnPinch(_pinchFinger);
+                /*var LeftHandPinch = _leftHand.OnPinch(_pinchFinger);
                 var RightHandPinch = _rightHand.OnPinch(_pinchFinger);
 
                 return OnTwoHandedPinchStart.SelectMany(_ =>
                    LeftHandPinch.Merge(RightHandPinch)
                    .Take(1)
-                   .Select(p => PinchDistance()));
-
-
+                   .Select(p => PinchDistance()));*/
+                if (_onTwoHandedPinch == null) 
+                {
+                    _onTwoHandedPinch= CreateOnTwoHandedPinch();
+                }
+                return _onTwoHandedPinch.Where(p => !p).Select(_ => PinchDistance());
             }
+        }
+        //
+        public IObservable<float> TwoHandedPinchDistance
+    {
+        get
+        {
+            var leftHandPinch = _leftHand.OnPinch(_pinchFinger);
+            var rightHandPinch = _rightHand.OnPinch(_pinchFinger);
 
+            return OnTwoHandedPinchStart
+                .SelectMany(p =>
+                Observable.EveryUpdate().Select(x => PinchDistance())
+                .TakeUntil(leftHandPinch.Merge(rightHandPinch)));
 
         }
-
-
-
-
+    }
 
         private float PinchDistance()
         {
