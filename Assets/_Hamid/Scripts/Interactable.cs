@@ -29,7 +29,8 @@ namespace _VIRAL._03_Scripts
         public SwellingRing Ring => _ring;
 
 
-        private Sequence _ringScaleTweener;
+        //private Sequence _ringScaleTweener;
+        private Tweener _ringScaleTweener;
 
         private CenterEyeAnchor _centerEye;
 
@@ -92,7 +93,10 @@ namespace _VIRAL._03_Scripts
         public void AdjustRingScale(float multiplier)
         {
             _ringScaleTweener?.Kill();
-            //_ringScaleTweener = _ring.transform.DOScale(Vector3.one * _ringScale * multiplier, 0.2f).SetEase(Ease.OutBack);
+            _ringScaleTweener = _ring.transform.DOScale(Vector3.one * _ringScale * multiplier, 0.2f).SetEase(Ease.OutBack);
+            // Assign the Tweener object directly
+            //Tweener _ringScaleTweener = _ring.transform.DOScale(Vector3.one * _ringScale * multiplier, 0.2f).SetEase(Ease.OutBack);
+
 
         }
     }

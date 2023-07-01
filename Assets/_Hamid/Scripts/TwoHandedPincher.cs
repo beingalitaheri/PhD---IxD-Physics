@@ -48,25 +48,34 @@ namespace _VIRAL._03_Scripts
 
             }
         }
+        //Week 4
+        public IObservable<float> OnTwoHandedPinchEnd 
+        {
+            get 
+            {
+                var leftHandPinch = _leftHand.OnPinch(_pinchFinger);
+                var rightHandPinch = _rightHand.OnPinch(_pinchFinger);
 
-        public IObservable<float> OnTwoHandedPinchEnd
+                return OnTwoHandedPinchStart.SelectMany(_ =>
+                leftHandPinch.Merge(rightHandPinch)
+                .Take(1)
+                .Select(p => PinchDistance())
+                );
+            }
+        }
+
+        //Week 3
+        /*public IObservable<float> OnTwoHandedPinchEnd
         {
             get
             {
-                /*var LeftHandPinch = _leftHand.OnPinch(_pinchFinger);
-                var RightHandPinch = _rightHand.OnPinch(_pinchFinger);
-
-                return OnTwoHandedPinchStart.SelectMany(_ =>
-                   LeftHandPinch.Merge(RightHandPinch)
-                   .Take(1)
-                   .Select(p => PinchDistance()));*/
                 if (_onTwoHandedPinch == null) 
                 {
                     _onTwoHandedPinch= CreateOnTwoHandedPinch();
                 }
                 return _onTwoHandedPinch.Where(p => !p).Select(_ => PinchDistance());
             }
-        }
+        }*/
         //
         public IObservable<float> TwoHandedPinchDistance
     {

@@ -73,7 +73,6 @@ namespace _VIRAL._03_Scripts
         public void StopEstimatingVelocity()
         {
             _velocityEstimatorDisposable?.Dispose();
-
         }
 
         private void EstimateVelocity()
@@ -87,12 +86,7 @@ namespace _VIRAL._03_Scripts
 
             float velocityFactor = 1.0f / Time.deltaTime;
 
-
             velocitySamples[v] = velocityFactor * (_referencePosition - _priviousPosition);
-
-
-
-
 
             Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(_priviousRotation);
 
@@ -127,19 +121,13 @@ namespace _VIRAL._03_Scripts
                 {
                     velocity += velocitySamples[i];
                 }
-
                 velocity *= (1.0f / velocitySampleCount);
-
             }
-
             if (velocity == Vector3.negativeInfinity || velocity == Vector3.positiveInfinity || float.IsNaN(velocity.x) || float.IsNaN(velocity.y) || float.IsNaN(velocity.z))
             {
                 return Vector3.zero;
             }
-
             return velocity;
-
-
         }
 
         public Vector3 GetEstimatedAngularVelocity()

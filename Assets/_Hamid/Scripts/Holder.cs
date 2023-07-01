@@ -12,8 +12,8 @@ namespace _VIRAL._03_Scripts
 
         [SerializeField] protected HolderType _holderType = HolderType.Undefined;
         [SerializeField] public bool _captureKinematically = false;
-        [SerializeField] protected Transform _textContainer;
-        [SerializeField] protected TextMeshPro _tmp;
+        //[SerializeField] protected Transform _textContainer;
+        //[SerializeField] protected TextMeshPro _tmp;
         [SerializeField] public float _releaseDistance = 0.1f;
         [SerializeField] private bool _restrictAllowedObjects = false;
         [SerializeField] private ObjectType[] _allowedObjectTypes;

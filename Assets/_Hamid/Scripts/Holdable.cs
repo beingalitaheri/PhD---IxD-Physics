@@ -83,11 +83,11 @@ namespace _VIRAL._03_Scripts
         }
         void Start()
         {
-            // _interactable = GetComponent<Interactable>();
-            //_rb = GetComponent<Rigidbody>();
-            //_kinematicEstimator = gameObject.AddComponent<KinematicEstimator>();
+             _interactable = GetComponent<Interactable>();
+             _rb = GetComponent<Rigidbody>();
+             _kinematicEstimator = gameObject.AddComponent<KinematicEstimator>();
 
-            // Initialize();
+             Initialize();
 
         }
 
@@ -131,7 +131,6 @@ namespace _VIRAL._03_Scripts
             {
                 _linkedJointConnectedAnchor = _linkedJoint.connectedAnchor;
             }
-
         }
         public void Highlight(bool highlight)
         {
@@ -165,8 +164,8 @@ namespace _VIRAL._03_Scripts
             _isCaptured = true;
             _holder = holder;
 
-            //_interactable.Ring.gameObject.SetActive(false);
-            //transform.parent = holder.transform;
+            _interactable.Ring.gameObject.SetActive(false);
+            transform.parent = holder.transform;
 
             _onCaptured.OnNext(this);
         }
@@ -231,7 +230,25 @@ namespace _VIRAL._03_Scripts
 
         public void Release()
         {
-            if (!_holder)
+            if(_kinemtaicOnCaptured) 
+            {
+                _rb.isKinematic = _initialKinematicState;
+                _rb.useGravity = _initialGravityState;
+            }
+            _interactable.Ring.gameObject.SetActive(false);
+            _isCaptured= false;
+            _holder = null;
+            transform.parent = _initialParent;
+
+            if (_rb.useGravity) 
+            {
+                _rb.velocity = _kinematicEstimator.GetEstimatedVelocity();
+                _rb.angularVelocity = _kinematicEstimator.GetEstimatedAngularVelocity();
+            }
+
+            _kinematicEstimator.StopEstimatingVelocity();
+
+           /* if (!_holder)
             {
                 return;
             }
@@ -274,7 +291,7 @@ namespace _VIRAL._03_Scripts
             //    _rb.angularVelocity = _kinematicEstimator.GetEstimatedAngularVelocity();
             //}
 
-            //_kinematicEstimator.StopEstimatingVelocity();
+            //_kinematicEstimator.StopEstimatingVelocity(); */
 
             _onReleased.OnNext(this);
 

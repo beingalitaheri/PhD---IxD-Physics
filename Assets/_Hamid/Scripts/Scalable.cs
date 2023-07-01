@@ -67,7 +67,6 @@ namespace _VIRAL._03_Scripts
 
             _twoHandedPincher.OnTwoHandedPinchEnd.Subscribe(distance =>
             {
-
                 StopScaling();
             }).AddTo(this);
 
@@ -112,7 +111,6 @@ namespace _VIRAL._03_Scripts
                 _interactable.Ring.ShowScaleRings(true);
                 _currentScaleFactor = newScaleFactor;
                 transform.localScale = _initialScale * newScaleFactor;
-
 
                 _interactable.Holdable.RefreshPhysics();
 
