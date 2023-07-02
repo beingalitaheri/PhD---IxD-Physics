@@ -63,10 +63,10 @@ namespace _VIRAL._03_Scripts
         public Transform _visualSnapHandLeft;
 
 
-        [SerializeField] private int handSpring = 1500;
-        [SerializeField] private int hand_angular = 200;
-        [SerializeField] private int hand_damper = 3;
-        [SerializeField] private int hand_breakForce = 900000;
+        [SerializeField] private int handSpring = 3000;
+        [SerializeField] private int hand_angular = 1000;
+        [SerializeField] private int hand_damper = 50;
+        [SerializeField] private int hand_breakForce = 10000;
 
 
 
@@ -144,7 +144,7 @@ namespace _VIRAL._03_Scripts
                 _holder.Release();
             }
 
-            if (_captureKinematically)//**|| holder.CaptureKinematically)
+            if (_captureKinematically || holder._captureKinematically)
             {
                 _rb.isKinematic = true;
                 _rb.useGravity = false;
@@ -164,8 +164,8 @@ namespace _VIRAL._03_Scripts
             _isCaptured = true;
             _holder = holder;
 
-            _interactable.Ring.gameObject.SetActive(false);
-            transform.parent = holder.transform;
+            //_interactable.Ring.gameObject.SetActive(false);
+            //transform.parent = holder.transform;
 
             _onCaptured.OnNext(this);
         }
@@ -198,6 +198,9 @@ namespace _VIRAL._03_Scripts
                 _joint.connectedAnchor = Vector3.zero;
                 spring = 1000;
                 angularspring = 100;
+                damper = 100;
+                maximumForce = 1000;
+                _capturePoint = _rb.centerOfMass;
 
             }
 
@@ -208,14 +211,14 @@ namespace _VIRAL._03_Scripts
 
             JointDrive motionDrive = new JointDrive();
             motionDrive.positionSpring = spring;
-            //** motionDrive.positionDamper = damper;
+            motionDrive.positionDamper = damper;
             motionDrive.maximumForce = maximumForce;
 
 
 
             JointDrive angularDrive = new JointDrive();
             angularDrive.positionSpring = angularspring;
-            //**  angularDrive.positionDamper = damper;
+            angularDrive.positionDamper = damper;
             angularDrive.maximumForce = maximumForce;
 
 
