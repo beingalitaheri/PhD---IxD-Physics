@@ -9,6 +9,7 @@ TagManager:
   - Right_hand
   - Left_hand
   - Floor
+  - FingerTip
   layers:
   - Default
   - TransparentFX
