@@ -5,10 +5,13 @@ using UnityEngine;
 public class OpenUI : MonoBehaviour
 {
     [Header("( Choose Mode : )")]
-    public bool _OpenHandUI,_OpenMainMenu;
+    public bool _OpenHandUI;
+    public bool _OpenMainMenu;
+
     bool _Open;
     //
-    public GameObject _HandMenu;
+    public GameObject _HandMenu,_TikObj;
+    public bool UseTik;
     //
     public void OnTriggerEnter(Collider other) 
     {
@@ -26,6 +29,7 @@ public class OpenUI : MonoBehaviour
                     MainUI MUI = FindObjectOfType<MainUI>();
                     MUI.CloseUI();
                 }
+                if (UseTik) { _TikObj.gameObject.SetActive(false); }
                  GetComponent<ButtonClick>()._ButtonClicked();
             }
             else 
@@ -40,10 +44,16 @@ public class OpenUI : MonoBehaviour
                     MainUI MUI = FindObjectOfType<MainUI>();
                     MUI.OpenUI();
                 }
+                if (UseTik) { _TikObj.gameObject.SetActive(true); }
                 GetComponent<ButtonClick>()._ButtonClicked();
 
             }
         }
+    }
+    //
+    void Update() 
+    {
+
     }
     //
 }

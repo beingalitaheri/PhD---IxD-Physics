@@ -14,27 +14,18 @@ namespace _VIRAL._03_Scripts
         void Start()
         {
             Initialize();
-
         }
 
         private void Initialize()
         {
 
-
             _hand.OnStartGraping.Subscribe(h =>
             {
-
                 Capture();
-
-            }
-
-            );
-
+            });
             _hand.onStopGrasping.Subscribe(h =>
             {
-
                 Release();
-
             });
 
             _onCaptured.Subscribe(h =>
@@ -52,13 +43,9 @@ namespace _VIRAL._03_Scripts
                     _hand.MakeTransparent(true);
                     _hand.ShowHand(true);
                 }
-
-
-
             });
 
             _onReleased.Subscribe(h =>
-
             {
                 h.ShowVisualSnapHand(false, _hand.hand_type);
                 _hand.ShowHand(true);
