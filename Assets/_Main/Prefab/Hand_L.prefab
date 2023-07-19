@@ -263,6 +263,8 @@ MonoBehaviour:
   _OpenHandUI: 1
   _OpenMainMenu: 0
   _HandMenu: {fileID: 8624717421755831386}
+  _TikObj: {fileID: 0}
+  UseTik: 0
 --- !u!114 &4947515094887941582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +642,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 442d5b4503ed83c4897ef44659446587, type: 3}
+  - {fileID: 1695841675134466970, guid: 9f9ca350dcbd38949828f288ff342386, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
