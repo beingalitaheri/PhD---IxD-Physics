@@ -67,7 +67,6 @@ namespace _VIRAL._03_Scripts
             bool allowedToHold = CheckObjectAllowed(holdable) && CheckIfCanHoldThis(holdable);
             if (holdable && !_reachableHoldables.Contains(holdable))
             {
-
                 _reachableHoldables.Add(holdable);
                 CheckClosest();
             }
@@ -83,8 +82,6 @@ namespace _VIRAL._03_Scripts
                 holdable.Highlight(false);
                 CheckClosest();
             }
-
-
         }
 
         private void CheckClosest()
