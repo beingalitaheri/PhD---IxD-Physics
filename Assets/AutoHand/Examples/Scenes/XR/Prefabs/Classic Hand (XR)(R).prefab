@@ -129,7 +129,6 @@ MonoBehaviour:
   hand: {fileID: 4537506675607233267}
   grabButton: 4
   grabAxis: 0
-  squeezeAxis: 1
   squeezeButton: 0
 --- !u!1001 &7877394430514119980
 PrefabInstance:
