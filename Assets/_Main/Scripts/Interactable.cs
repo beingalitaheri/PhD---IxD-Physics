@@ -5,7 +5,7 @@ using DG.Tweening;
 
 namespace _VIRAL._03_Scripts
 {
-    [RequireComponent(typeof(Rigidbody))]
+    //[RequireComponent(typeof(Rigidbody))]
     public class Interactable : MonoBehaviour
     {
         [SerializeField] private ObjectType _objectType = ObjectType.undefined;
@@ -38,7 +38,7 @@ namespace _VIRAL._03_Scripts
 
         private void Awake()
         {
-            _rb = GetComponent<Rigidbody>();
+           // _rb = GetComponent<Rigidbody>();
             _ring = Instantiate(_ringPrefab, transform.position, transform.rotation).GetComponent<SwellingRing>();
             _ring.transform.localScale = Vector3.one * _ringScale;
             _centerEye = FindObjectOfType<CenterEyeAnchor>();
@@ -54,7 +54,7 @@ namespace _VIRAL._03_Scripts
         }
         private void Update()
         {
-            _ring.transform.position = _rb.worldCenterOfMass;
+            _ring.transform.position = this.transform.position;
             CheckGaze();
         }
 
