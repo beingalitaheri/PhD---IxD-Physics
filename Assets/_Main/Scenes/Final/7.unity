@@ -315,7 +315,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.1765, y: 0.1796, z: 1.893}
+  m_ConnectedAnchor: {x: 0.1765, y: 0.72459996, z: 1.893}
   m_UseSpring: 1
   m_Spring:
     spring: 1000
@@ -3293,7 +3293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287328925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -0.9, z: 1.0699997}
+  m_LocalPosition: {x: -0.1, y: 0, z: 1.0699997}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 487960453}
@@ -5326,7 +5326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539866474}
   m_LocalRotation: {x: -0.01211646, y: 0.999841, z: -0.011989972, w: 0.005246937}
-  m_LocalPosition: {x: -1.042552, y: -0.3, z: -0.8633435}
+  m_LocalPosition: {x: -1.042552, y: 0.38, z: -0.8633435}
   m_LocalScale: {x: 0.61, y: 0.6, z: 0.61}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8536,7 +8536,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.494, y: 0.1796, z: 1.893}
+  m_ConnectedAnchor: {x: 0.494, y: 0.72459996, z: 1.893}
   m_UseSpring: 1
   m_Spring:
     spring: 1000
@@ -13419,7 +13419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353983625}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.202, y: -0.536, z: 1.65}
+  m_LocalPosition: {x: 0.202, y: 0, z: 1.65}
   m_LocalScale: {x: 0.9000002, y: 1.3605534, z: 2.8400002}
   m_Children:
   - {fileID: 2081589046}
@@ -13667,7 +13667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1364768202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13896,7 +13896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391299348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.97, y: -0.746, z: -2.56}
+  m_LocalPosition: {x: 0.97, y: 0.04, z: -2.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4406896091862183}
@@ -24549,7 +24549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837686474}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.49199998, y: -0.72499996, z: 1.716}
+  m_LocalPosition: {x: 0.49199998, y: -0.18, z: 1.716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1974119905}
@@ -25430,7 +25430,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.167, y: 0.17800707, z: 1.885}
+  m_ConnectedAnchor: {x: 1.167, y: 0.723007, z: 1.885}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -30230,6 +30230,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1875347057906869541, guid: 95270cf654f870940add155f17b05783,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875347057906869541, guid: 95270cf654f870940add155f17b05783,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875347057906869541, guid: 95270cf654f870940add155f17b05783,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875347058702148034, guid: 95270cf654f870940add155f17b05783,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875347058702148034, guid: 95270cf654f870940add155f17b05783,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875347058702148034, guid: 95270cf654f870940add155f17b05783,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416775913844878651, guid: 95270cf654f870940add155f17b05783,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.113
+      objectReference: {fileID: 0}
     - target: {fileID: 3416775914729077698, guid: 95270cf654f870940add155f17b05783,
         type: 3}
       propertyPath: m_Enabled
