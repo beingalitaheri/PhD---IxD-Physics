@@ -11,8 +11,8 @@ public class Mimotion : MonoBehaviour
     private Vector3 _handStart;
     private Vector3 _currentHandPosition;
 
-    private Hand _leftHand;
-    private Hand _rightHand;
+    private _Hand _leftHand;
+    private _Hand _rightHand;
     private Transform _cameraRig;
 
     public Subject<Mimotion> OnStartMoving = new Subject<Mimotion>();
@@ -22,8 +22,8 @@ public class Mimotion : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _leftHand = GameObject.FindGameObjectWithTag("Left_hand").GetComponent<Hand>();
-        _rightHand = GameObject.FindGameObjectWithTag("Right_hand").GetComponent<Hand>();
+        _leftHand = GameObject.FindGameObjectWithTag("Left_hand").GetComponent<_Hand>();
+        _rightHand = GameObject.FindGameObjectWithTag("Right_hand").GetComponent<_Hand>();
 
 
         _cameraRig = FindObjectOfType<OVRCameraRig>().transform;

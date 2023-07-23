@@ -18,14 +18,14 @@ public class LocomotionManager : MonoBehaviour
     public Transform CameraRig => _cameraRig;
     public Transform CenterEye => _centerEyeAnchor;
 
-    public Hand LeftHand => _leftHand;
-    public Hand RightHand => _rightHand;
+    public _Hand LeftHand => _leftHand;
+    public _Hand RightHand => _rightHand;
 
     private Transform _cameraRig;
     private Transform _centerEyeAnchor;
 
-    private Hand _leftHand;
-    private Hand _rightHand;
+    private _Hand _leftHand;
+    private _Hand _rightHand;
 
     private IDisposable _handleTeleporationDisposable;
     private IDisposable _handleMimotionDisposable;
@@ -34,8 +34,8 @@ public class LocomotionManager : MonoBehaviour
     {
         _cameraRig = FindObjectOfType<OVRCameraRig>().transform;
         _centerEyeAnchor = FindObjectOfType<CenterEyeAnchor>().transform;
-        _leftHand = FindObjectOfType<Hand>().GetComponent<Hand>();
-        _rightHand = FindObjectOfType<Hand>().GetComponent<Hand>();
+        _leftHand = FindObjectOfType<_Hand>().GetComponent<_Hand>();
+        _rightHand = FindObjectOfType<_Hand>().GetComponent<_Hand>();
 
     }
 

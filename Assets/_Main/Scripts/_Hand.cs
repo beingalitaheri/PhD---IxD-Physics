@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
-    public class Hand : MonoBehaviour
+    public class _Hand : MonoBehaviour
     {
         [SerializeField] private OVRHand my_ovr_hand;
         [SerializeField] private OVRHand.Hand which_hand;
@@ -32,12 +32,12 @@ using UnityEngine;
         [SerializeField] private Material _materialDefault;
         [SerializeField] private Material _materialTransparent;
 
-        public Subject<Hand> _OnStartGrasping = new Subject<Hand>();
-        public Subject<Hand> _OnStopGrasping = new Subject<Hand>();
+        public Subject<_Hand> _OnStartGrasping = new Subject<_Hand>();
+        public Subject<_Hand> _OnStopGrasping = new Subject<_Hand>();
 
 
-        public IObservable<Hand> OnStartGraping => _OnStartGrasping;
-        public IObservable<Hand> onStopGrasping => _OnStopGrasping;
+        public IObservable<_Hand> OnStartGraping => _OnStartGrasping;
+        public IObservable<_Hand> onStopGrasping => _OnStopGrasping;
 
         public bool ISGrasping => _isGrasping;
 

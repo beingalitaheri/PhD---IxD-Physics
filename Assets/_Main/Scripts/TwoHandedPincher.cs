@@ -10,8 +10,8 @@ namespace _VIRAL._03_Scripts
     {
         [SerializeField] private OVRHand.HandFinger _pinchFinger = OVRHand.HandFinger.Index;
 
-        private Hand _leftHand;
-        private Hand _rightHand;
+        private _Hand _leftHand;
+        private _Hand _rightHand;
 
         private IObservable<float> _twoHandedPinchDistance;
         private IObservable<bool> _onTwoHandedPinch;
@@ -24,8 +24,8 @@ namespace _VIRAL._03_Scripts
             //_rightHand = FindObjectOfType<HandRight>().GetComponent<Hand>();
 
 
-            _leftHand = GameObject.FindGameObjectWithTag("Left_hand").GetComponent<Hand>();
-            _rightHand = GameObject.FindGameObjectWithTag("Right_hand").GetComponent<Hand>();
+            _leftHand = GameObject.FindGameObjectWithTag("Left_hand").GetComponent<_Hand>();
+            _rightHand = GameObject.FindGameObjectWithTag("Right_hand").GetComponent<_Hand>();
         }
         private IObservable<bool> CreateOnTwoHandedPinch()
         {

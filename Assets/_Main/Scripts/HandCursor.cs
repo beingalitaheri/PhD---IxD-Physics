@@ -30,7 +30,7 @@ public class HandCursor : MonoBehaviour
 
     public bool IsAiming => _isAiming;
 
-    private Hand _hand;
+    private _Hand _hand;
 
     private int _layerMask = 1 << 8;
 
@@ -44,7 +44,7 @@ public class HandCursor : MonoBehaviour
 
     private void Awake()
     {
-        _hand = GetComponentInParent<Hand>();
+        _hand = GetComponentInParent<_Hand>();
     }
 
     private void Start()

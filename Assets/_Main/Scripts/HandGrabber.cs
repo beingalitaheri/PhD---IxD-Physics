@@ -7,10 +7,10 @@ namespace _VIRAL._03_Scripts
 {
     public class HandGrabber : Holder
     {
-        [SerializeField] private Hand _hand;
+        [SerializeField] private _Hand _hand;
         // Start is called before the first frame update
 
-        public Hand Hand => _hand;
+        public _Hand Hand => _hand;
         void Start()
         {
             Initialize();
